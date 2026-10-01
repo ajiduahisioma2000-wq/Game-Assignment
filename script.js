@@ -31,6 +31,7 @@ const hintDisplayEl = document.getElementById("hintDisplay");
 const guessForm = document.getElementById("guessForm");
 const guessInput = document.getElementById("guessInput");
 const feedbackEl = document.getElementById("feedback");
+const result = document.getElementById("result");
 const statWrongEl = document.getElementById("statWrong");
 const statCardsEl = document.getElementById("statCards");
 const btnNewWord = document.getElementById("btnNewWord");
@@ -244,6 +245,11 @@ async function handleWrongGuess(guess) {
 function handleWin() {
   tableEl.classList.add("is-won");
   setFeedback(`Solved it! "${state.target}" — took ${state.wrongGuesses} wrong guess(es).`, "win");
+
+  if (guess.toLowerCase().trim() === correctWord.toLowerCase()) 
+    
+    result.textContent = "Correct! 👍";
+
   guessInput.disabled = true;
 }
 
